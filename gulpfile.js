@@ -33,7 +33,7 @@ gulp.task('minify-css', ['less'], function () {
   return gulp.src('css/new-age.css')
     .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('../static/lp/css'))
+    .pipe(gulp.dest('./static/lp/css'))
     .pipe(browserSync.reload({
       stream: true
     }))
@@ -45,7 +45,7 @@ gulp.task('minify-js', function () {
     .pipe(uglify())
     .pipe(header(banner, { pkg: pkg }))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('../static/lp/js'))
+    .pipe(gulp.dest('./static/lp/js'))
     .pipe(browserSync.reload({
       stream: true
     }))
@@ -56,7 +56,7 @@ gulp.task('copy-img', function () {
   gulp.src([
     'img/**',
   ])
-    .pipe(gulp.dest('../static/lp/img'))
+    .pipe(gulp.dest('./static/lp/img'))
 })
 
 // Copy index.hmml
@@ -64,14 +64,14 @@ gulp.task('copy-html', function () {
   gulp.src([
     'index.html',
   ])
-    .pipe(gulp.dest('../static'))
+    .pipe(gulp.dest('./static/'))
 });
 
 // Google Analytics
 gulp.task('ga', function () {
   gulp.src('./index.html')
     .pipe(ga({ url: 'qeeply.com', uid: 'UA-92898794-1' }))
-    .pipe(gulp.dest('../static'));
+    .pipe(gulp.dest('./static/'));
 });
 
 // Run everything
@@ -84,7 +84,7 @@ gulp.task('build-dev', ['minify-css', 'minify-js', 'copy-img', 'copy-html']);
 gulp.task('browserSync', function () {
   browserSync.init({
     server: {
-      baseDir: '../static'
+      baseDir: './static/'
     },
   })
 })
