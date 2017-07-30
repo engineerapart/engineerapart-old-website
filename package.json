@@ -1,0 +1,36 @@
+{
+  "name": "new-age",
+  "title": "New Age",
+  "version": "3.3.7",
+  "homepage": "http://startbootstrap.com/template-overviews/new-age",
+  "author": "Start Bootstrap",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE"
+  },
+  "scripts": {
+    "start": "npm run build",
+    "start:dev": "export NODE_ENV=development && gulp dev",
+    "build": "export NODE_ENV=production && gulp ",
+    "build:dev": "export NODE_ENV=development && gulp build-dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BlackrockDigital/startbootstrap-new-age.git"
+  },
+  "dependencies": {
+    "simple-line-icons": "^2.3.2",
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.13.0",
+    "font-awesome": "^4.6.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-ga": "0.0.8",
+    "gulp-header": "^1.8.7",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4",
+    "jquery": "^1.11.3"
+  }
+}
