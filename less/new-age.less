@@ -213,6 +213,7 @@ header {
 hr.thick {
   border-width: 3px;
   max-width: initial;
+  margin-top: 0;
 }
 
 section {
@@ -226,6 +227,8 @@ section {
 }
 
 section.services {
+  background: -webkit-linear-gradient(darken(@gray-lightest, 5%), @gray-lightest);
+  background: linear-gradient(darken(@gray-lightest, 5%), @gray-lightest);
   .container .row {
     padding: 3em;
     h3 {
@@ -238,6 +241,7 @@ section.services {
 }
 
 section.techstack {
+    padding-bottom: 0;
     .section-heading {
         h2 {
             margin-top: 0;
@@ -291,7 +295,9 @@ section.about {
 }
 
 section.contact {
-  text-align: center;
+  background: -webkit-linear-gradient(@gray-lightest , darken(@gray-lightest, 5%));
+  background: linear-gradient(@gray-lightest , darken(@gray-lightest, 5%));
+  text-align: left;
   h2 {
       margin-top: 0;
       margin-bottom: 25px;
@@ -299,44 +305,15 @@ section.contact {
           color: @brand-google-plus;
       }
   }
-  ul.list-social {
-      margin-bottom: 0;
-      li {
-          a {
-              display: block;
-              height: 80px;
-              width: 80px;
-              line-height: 80px;
-              font-size: 40px;
-              border-radius: 100%;
-              color: white;
-          }
-          &.social-twitter {
-              a {
-                  background-color: @brand-twitter;
-                  &:hover {
-                      background-color: darken(@brand-twitter, 5%);
-                  }
-              }
-          }
-          &.social-facebook {
-              a {
-                  background-color: @brand-facebook;
-                  &:hover {
-                      background-color: darken(@brand-facebook, 5%);
-                  }
-              }
-          }
-          &.social-google-plus {
-              a {
-                  background-color: @brand-google-plus;
-                  &:hover {
-                      background-color: darken(@brand-google-plus, 5%);
-                  }
-              }
-          }
-      }
+  
+  .container .row form {
+    float: none;
+
+    .submit {
+      width: 100%;
+    }
   }
+  
 }
 
 footer {
