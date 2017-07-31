@@ -57,16 +57,23 @@ p {
     .navbar-header .navbar-brand {
         .heading-font;
         color: @theme-primary;
+        padding: 0;
         &:hover,
         &:focus {
             color: darken(@theme-primary, 10%);
         }
         .logo {
-          height: 5.5em;
-          width: 5.5em;
-          margin-top: -2.2em;
+          height: 45px;
+          margin-top: 0.3em;
         }
     }
+
+    @media @screen-xs {
+      .navbar-header .navbar-brand {
+        padding-left: 1em;
+      }
+    }
+
     .navbar-header .navbar-toggle {
         font-size: 12px;
         color: @gray-darker;
@@ -97,7 +104,7 @@ p {
             }
         }
     }
-    @media (min-width: 768px) {
+    @media @screen-sm {
         background-color: transparent;
         border-color: transparent;
         .navbar-header .navbar-brand {
@@ -115,7 +122,7 @@ p {
             }
         }
         &.affix {
-            background-color: white;
+            background-color: rgba(255, 255, 255, .9);
             border-color: fade(@gray-darker, 10%);
             .navbar-header .navbar-brand {
                 color: @gray-darker;
@@ -201,7 +208,7 @@ header {
         max-height: calc(100vh - 100px);
         margin: 100px auto 0;
     }*/
-    @media (min-width: 992px) {
+    @media @screen-md {
         .header-content .header-content-inner h1 {
             font-size: 50px;
         }
@@ -221,7 +228,7 @@ section {
     h2 {
         font-size: 50px;
     }
-    @media (min-width: 992px) {
+    @media @screen-md {
         padding: 4em 0;
     }
 }
@@ -258,7 +265,7 @@ section.techstack {
     }
     .device-container {
         margin-bottom: 8em;
-        @media(min-width: 992px) {
+        @media @screen-md {
             margin-bottom: 0;
         }
     }
@@ -272,6 +279,7 @@ section.techstack {
             font-size: 80px;
               background: -webkit-linear-gradient(to left, @theme-secondary , @theme-tertiary);
               background: linear-gradient(to left, @theme-secondary , @theme-tertiary);
+              background-clip: text;
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
         }
@@ -279,7 +287,7 @@ section.techstack {
           width: 5em;
         }
     }
-    @media(min-width: 992px) {
+    @media @screen-md {
         .device-container,
         .feature-item {
         }
@@ -305,7 +313,7 @@ section.contact {
           color: @brand-google-plus;
       }
   }
-  
+
   .container .row form {
     float: none;
 
@@ -313,7 +321,7 @@ section.contact {
       width: 100%;
     }
   }
-  
+
 }
 
 footer {
@@ -340,29 +348,25 @@ footer {
             }
         }
     }
+
     .footer-container {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-between;
 
       .footer-section {
-        display: flex;
-        flex: 1;
-        margin: auto;
+        text-align: left;
+
+        & p {
+          margin: 5px 0;
+        }
+
+        & address {
+          margin-bottom: 0;
+        }
       }
 
-      .footer-section.left {
-        flex: 1;
-        justify-content: center;
-      }
-
-      .footer-section.middle {
-        flex: 1;
-      }
-
-      .footer-section.right {
-        flex: 1;
-        justify-content: center;
+      @media @screen-sm {
+        .footer-section.right {
+          text-align: right;
+        }
       }
     }
 }
@@ -376,12 +380,12 @@ footer {
 }
 
 .text-primary {
-    color: @theme-primary;
+  color: @theme-primary;
 }
 
 .no-gutter > [class*='col-'] {
-    padding-right:0;
-    padding-left:0;
+  padding-right:0;
+  padding-left:0;
 }
 
 // Button Styles
@@ -434,7 +438,7 @@ img::-moz-selection {
 }
 
 body {
-    webkit-tap-highlight-color: @gray-darker;
+    -webkit-tap-highlight-color: @gray-darker;
 }
 
 #mc_embed_signup {
