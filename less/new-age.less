@@ -211,9 +211,12 @@ header {
 // Sections
 
 section {
-    padding: 100px 0;
+    padding: 3em 0;
     h2 {
         font-size: 50px;
+    }
+    @media (min-width: 992px) {
+        padding: 8em 0;
     }
 }
 
@@ -267,7 +270,6 @@ section.signup {
     .background-cover;
     background-position: right;
     background-image: url('../img/bg-signup.jpg');
-    padding: 150px 0;
     .signup-content {
         position: relative;
         z-index: 1;
@@ -302,7 +304,6 @@ section.signup {
 }
 
 section.faq {
-  padding: 50px 0;
   .section-heading {
     text-align: center;
   }
