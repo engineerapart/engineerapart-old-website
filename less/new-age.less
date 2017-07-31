@@ -161,6 +161,11 @@ header {
                 margin-bottom: 30px;
                 font-size: 30px;
             }
+            div.services {
+                display: inline-block;
+                margin: 0.2em;
+                padding: 0.2em;
+            }
             .list-badges {
                 margin-bottom: 25px;
                 img {
@@ -168,6 +173,9 @@ header {
                     margin-bottom: 25px;
                 }
             }
+        }
+        a#learn-more {
+            margin-top: 1.0em;
         }
     }
     .device-container {
@@ -177,24 +185,22 @@ header {
             border-radius: 3px;
         }
     }
-    @media (min-width: 768px) {
-        .header-content {
-            text-align: left;
-            padding: 0;
-            .header-content-inner {
-                margin: 0;
-                transform: translateY(-50%);
-                h1 {
-                    font-size: 35px;
-                }
+    .header-content {
+        text-align: left;
+        padding: 0;
+        .header-content-inner {
+            margin: 0;
+            transform: translateY(-50%);
+            h1 {
+                font-size: 35px;
             }
         }
-        .device-container {
-            max-width: none;
-            max-height: calc(100vh - 100px);
-            margin: 100px auto 0;
-        }
     }
+    /*.device-container {
+        max-width: none;
+        max-height: calc(100vh - 100px);
+        margin: 100px auto 0;
+    }*/
     @media (min-width: 992px) {
         .header-content .header-content-inner h1 {
             font-size: 50px;

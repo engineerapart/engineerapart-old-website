@@ -163,6 +163,11 @@ header {
   background: url("../img/bg-pattern.png"), linear-gradient(to left, #a0d6f8, #0f90e0);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
+  /*.device-container {
+        max-width: none;
+        max-height: calc(100vh - 100px);
+        margin: 100px auto 0;
+    }*/
 }
 header .header-content {
   text-align: center;
@@ -181,12 +186,20 @@ header .header-content .header-content-inner h1 {
   margin-bottom: 30px;
   font-size: 30px;
 }
+header .header-content .header-content-inner div.services {
+  display: inline-block;
+  margin: 0.2em;
+  padding: 0.2em;
+}
 header .header-content .header-content-inner .list-badges {
   margin-bottom: 25px;
 }
 header .header-content .header-content-inner .list-badges img {
   height: 50px;
   margin-bottom: 25px;
+}
+header .header-content a#learn-more {
+  margin-top: 1.0em;
 }
 header .device-container {
   max-width: 300px;
@@ -195,23 +208,16 @@ header .device-container {
 header .device-container .screen img {
   border-radius: 3px;
 }
-@media (min-width: 768px) {
-  header .header-content {
-    text-align: left;
-    padding: 0;
-  }
-  header .header-content .header-content-inner {
-    margin: 0;
-    transform: translateY(-50%);
-  }
-  header .header-content .header-content-inner h1 {
-    font-size: 35px;
-  }
-  header .device-container {
-    max-width: none;
-    max-height: calc(0vh);
-    margin: 100px auto 0;
-  }
+header .header-content {
+  text-align: left;
+  padding: 0;
+}
+header .header-content .header-content-inner {
+  margin: 0;
+  transform: translateY(-50%);
+}
+header .header-content .header-content-inner h1 {
+  font-size: 35px;
 }
 @media (min-width: 992px) {
   header .header-content .header-content-inner h1 {
