@@ -161,10 +161,10 @@ header {
                 margin-bottom: 30px;
                 font-size: 30px;
             }
-            div.services {
+            .row div.services {
                 display: inline-block;
                 margin: 0.2em;
-                padding: 0.2em;
+                padding: 1em;
             }
             .list-badges {
                 margin-bottom: 25px;
@@ -175,7 +175,7 @@ header {
             }
         }
         a#learn-more {
-            margin-top: 1.0em;
+            margin-top: 5em;
         }
     }
     .device-container {
@@ -210,14 +210,31 @@ header {
 
 // Sections
 
+hr.thick {
+  border-width: 3px;
+  max-width: initial;
+}
+
 section {
     padding: 3em 0;
     h2 {
         font-size: 50px;
     }
     @media (min-width: 992px) {
-        padding: 8em 0;
+        padding: 4em 0;
     }
+}
+
+section.services {
+  .container .row {
+    padding: 3em;
+    h3 {
+      font-weight: 600;
+    }
+    p {
+      padding-top: 2em;
+    }
+  }
 }
 
 section.techstack {
@@ -265,110 +282,61 @@ section.techstack {
     }
 }
 
-section.signup {
-    position: relative;
-    .background-cover;
-    background-position: right;
-    background-image: url('../img/bg-signup.jpg');
-    .signup-content {
-        position: relative;
-        z-index: 1;
-        h2 {
-            margin-top: 0;
-            margin-bottom: 25px;
-            color: white;
-            font-size: 30px;
-        }
-        p {
-            font-family: Catamaran,Helvetica,Arial,sans-serif;
-            font-weight: 200;
-            letter-spacing: 1px;
-            margin-top: 0;
-            margin-bottom: 25px;
-            color: white;
-        }
-        @media (min-width: 768px) {
-            h2 {
-                font-size: 40px;
-            }
-        }
-    }
-    .overlay {
-        height: 100%;
-        width: 100%;
-        background-color: fade(black, 50%);
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+section.projects {
+  text-align: center;
 }
 
-section.faq {
-  .section-heading {
-    text-align: center;
-  }
-  .card{
-    margin-bottom: 20px;
-  }
-  .card-header {
-    h2 {
-      color: @theme-tertiary;
-      font-size: 30px;
-
-      :hover {
-        cursor: pointer;
-      }
-    }
-  }
+section.about {
+  text-align: center;
 }
 
 section.contact {
-    text-align: center;
-    h2 {
-        margin-top: 0;
-        margin-bottom: 25px;
-        i {
-            color: @brand-google-plus;
-        }
-    }
-    ul.list-social {
-        margin-bottom: 0;
-        li {
-            a {
-                display: block;
-                height: 80px;
-                width: 80px;
-                line-height: 80px;
-                font-size: 40px;
-                border-radius: 100%;
-                color: white;
-            }
-            &.social-twitter {
-                a {
-                    background-color: @brand-twitter;
-                    &:hover {
-                        background-color: darken(@brand-twitter, 5%);
-                    }
-                }
-            }
-            &.social-facebook {
-                a {
-                    background-color: @brand-facebook;
-                    &:hover {
-                        background-color: darken(@brand-facebook, 5%);
-                    }
-                }
-            }
-            &.social-google-plus {
-                a {
-                    background-color: @brand-google-plus;
-                    &:hover {
-                        background-color: darken(@brand-google-plus, 5%);
-                    }
-                }
-            }
-        }
-    }
+  text-align: center;
+  h2 {
+      margin-top: 0;
+      margin-bottom: 25px;
+      i {
+          color: @brand-google-plus;
+      }
+  }
+  ul.list-social {
+      margin-bottom: 0;
+      li {
+          a {
+              display: block;
+              height: 80px;
+              width: 80px;
+              line-height: 80px;
+              font-size: 40px;
+              border-radius: 100%;
+              color: white;
+          }
+          &.social-twitter {
+              a {
+                  background-color: @brand-twitter;
+                  &:hover {
+                      background-color: darken(@brand-twitter, 5%);
+                  }
+              }
+          }
+          &.social-facebook {
+              a {
+                  background-color: @brand-facebook;
+                  &:hover {
+                      background-color: darken(@brand-facebook, 5%);
+                  }
+              }
+          }
+          &.social-google-plus {
+              a {
+                  background-color: @brand-google-plus;
+                  &:hover {
+                      background-color: darken(@brand-google-plus, 5%);
+                  }
+              }
+          }
+      }
+  }
 }
 
 footer {
