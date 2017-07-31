@@ -1,5 +1,20 @@
 // Mixins
 
+// Breakpoints
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+// ------------------------- Source: http://blog.scur.pl/2012/06/variable-media-queries-less-css/
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+              ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+              ~"only screen and (min-device-pixel-ratio: 1.5)";
+@screen-xs:   ~"only screen and (max-width: 767px)";
+@screen-sm:   ~"only screen and (min-width: 768px)"; // and (max-width: 991px)";
+@screen-md:   ~"only screen and (min-width: 992px)"; // and (max-width: 1199px)";
+@screen-lg:   ~"only screen and (min-width: 1200px)";
+
+// Styling
 .transition-all() {
     -webkit-transition: all 0.35s;
     -moz-transition: all 0.35s;
