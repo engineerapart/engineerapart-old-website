@@ -34,40 +34,33 @@
     $('#header-logo-mono').addClass('in');
   });
 
-  var handleToggle = function(target, other) {
+  // Form button handler
+  var isDetailedForm = false;
+
+  var handleToggle = function(target, other, showDetailed) {
     target.removeClass('btn-default');
     target.addClass('btn-primary');
 
     other.addClass('btn-default');
     other.removeClass('btn-primary');
+
+    if (showDetailed) {
+      $('.detailed').css('display', 'inherit');
+      isDetailedForm = true;
+    } else {
+      $('.detailed').css('display', 'none');
+      isDetailedForm = false;
+    }
   }
 
-  // Form button handler
-  $('#simple-form').click(function() {
-    handleToggle($(this), $('#detailed-form'));
-    $('.detailed').css('display', 'none');
+  $('#simple-form').click(function(event) {
+    event.preventDefault();
+    handleToggle($(this), $('#detailed-form'), false);
   });
   
-  $('#detailed-form').click(function () {
-    handleToggle($(this), $('#simple-form'));
-    $('.detailed').css('display', 'initial');
-
-    // Prevent double clicking
-    // var subscribeBtn = $(this);
-    // subscribeBtn.attr('disabled', true);
-
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/subscribe',
-    //   data: JSON.stringify(body),
-    //   complete: function(data) {
-    //     subscribeBtn.removeAttr('disabled');
-    //     var msg = (data.status === 200 || data.status === 500) ? data.responseText :
-    //       'Oops, something went wrong; please try again later!';
-    //     $.notify(msg);
-    //   },
-    //   contentType: 'application/json',
-    //   dataType: 'json'
-    // });
+  $('#detailed-form').click(function (event) {
+    event.preventDefault();
+    handleToggle($(this), $('#simple-form'), true);
   });
+
 })(jQuery); // End of use strict
