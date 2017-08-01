@@ -34,29 +34,33 @@
     $('#header-logo-mono').addClass('in');
   });
 
-  // Button handler
-  $('#btn-subscribe').click(function () {
-    var body = {
-      name: $('#mce-NAME').val(),
-      email: $('#mce-EMAIL').val()
-    };
+  // Form button handler
+  var isDetailedForm = false;
 
-    // Prevent double clicking
-    var subscribeBtn = $(this);
-    subscribeBtn.attr('disabled', true);
+  var handleToggle = function(target, other, showDetailed) {
+    target.removeClass('btn-default');
+    target.addClass('btn-primary');
 
-    $.ajax({
-      type: 'POST',
-      url: '/subscribe',
-      data: JSON.stringify(body),
-      complete: function(data) {
-        subscribeBtn.removeAttr('disabled');
-        var msg = (data.status === 200 || data.status === 500) ? data.responseText :
-          'Oops, something went wrong; please try again later!';
-        $.notify(msg);
-      },
-      contentType: 'application/json',
-      dataType: 'json'
-    });
+    other.addClass('btn-default');
+    other.removeClass('btn-primary');
+
+    if (showDetailed) {
+      $('.detailed').css('display', 'inherit');
+      isDetailedForm = true;
+    } else {
+      $('.detailed').css('display', 'none');
+      isDetailedForm = false;
+    }
+  }
+
+  $('#simple-form').click(function(event) {
+    event.preventDefault();
+    handleToggle($(this), $('#detailed-form'), false);
   });
+  
+  $('#detailed-form').click(function (event) {
+    event.preventDefault();
+    handleToggle($(this), $('#simple-form'), true);
+  });
+
 })(jQuery); // End of use strict

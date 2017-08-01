@@ -304,14 +304,24 @@
         <div class="col-lg-12 text-center">
           <div class="section-heading">
             <h2>Contact Us</h2>
-            <hr>
+            <hr><br>
           </div>
         </div>
       </div>
       <div class="row">
-        <form class="col-md-6 center-block">
-          <div class="form-group col-md-12">
-            <label for="company">Company</label>
+        <form class="col-md-6 col-md-push-3">
+          <div class="form-group col-xs-12 col-sm-12 col-md-8 col-md-push-3">
+            <div class="btn-group" data-toggle="buttons">
+              <label id="simple-form" class="btn btn-primary">
+                <input id="simple-form-checkbox" type="checkbox" name="options">Simple
+              </label>
+              <label id="detailed-form" class="btn btn-default">
+                <input id="detailed-form-checkbox" type="checkbox" name="options">Detailed
+              </label>
+            </div>
+          </div>
+          <div class="form-group detailed col-md-12">
+            <label for="company">Company Name</label>
             <input type="company" class="form-control" id="company">
           </div>
           <div class="form-group col-md-12">
@@ -325,6 +335,25 @@
           <div class="form-group col-md-6">
             <label for="phone">Phone Number</label>
             <input type="phone" class="form-control" id="phone">
+          </div>
+          <div class="form-group detailed col-md-6">
+            <label for="project-type">Type of Project</label>
+            <select class="form-control" id="project-type">
+              <option>Custom Software</option>
+              <option>Web Solution</option>
+              <option>Mobile App</option>
+              <option>Cloud Service</option>
+              <option>Integration</option>
+            </select>
+          </div>
+          <div class="form-group detailed col-md-6">
+            <label for="project-type">Estimated Budget</label>
+            <select class="form-control" id="project-type">
+              <option>Under $25k</option>
+              <option>$25k - $75k</option>
+              <option>$75k - $150k</option>
+              <option>$150k+</option>
+            </select>
           </div>
           <div class="form-group col-md-12">
             <label for="description">How Can We Help?</label>
