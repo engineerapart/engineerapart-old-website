@@ -34,29 +34,40 @@
     $('#header-logo-mono').addClass('in');
   });
 
-  // Button handler
-  $('#btn-subscribe').click(function () {
-    var body = {
-      name: $('#mce-NAME').val(),
-      email: $('#mce-EMAIL').val()
-    };
+  var handleToggle = function(target, other) {
+    target.removeClass('btn-default');
+    target.addClass('btn-primary');
+
+    other.addClass('btn-default');
+    other.removeClass('btn-primary');
+  }
+
+  // Form button handler
+  $('#simple-form').click(function() {
+    handleToggle($(this), $('#detailed-form'));
+    $('.detailed').css('display', 'none');
+  });
+  
+  $('#detailed-form').click(function () {
+    handleToggle($(this), $('#simple-form'));
+    $('.detailed').css('display', 'initial');
 
     // Prevent double clicking
-    var subscribeBtn = $(this);
-    subscribeBtn.attr('disabled', true);
+    // var subscribeBtn = $(this);
+    // subscribeBtn.attr('disabled', true);
 
-    $.ajax({
-      type: 'POST',
-      url: '/subscribe',
-      data: JSON.stringify(body),
-      complete: function(data) {
-        subscribeBtn.removeAttr('disabled');
-        var msg = (data.status === 200 || data.status === 500) ? data.responseText :
-          'Oops, something went wrong; please try again later!';
-        $.notify(msg);
-      },
-      contentType: 'application/json',
-      dataType: 'json'
-    });
+    // $.ajax({
+    //   type: 'POST',
+    //   url: '/subscribe',
+    //   data: JSON.stringify(body),
+    //   complete: function(data) {
+    //     subscribeBtn.removeAttr('disabled');
+    //     var msg = (data.status === 200 || data.status === 500) ? data.responseText :
+    //       'Oops, something went wrong; please try again later!';
+    //     $.notify(msg);
+    //   },
+    //   contentType: 'application/json',
+    //   dataType: 'json'
+    // });
   });
 })(jQuery); // End of use strict
