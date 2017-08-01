@@ -64,7 +64,12 @@ p {
         }
         .logo {
           height: 35px;
-          margin-top: 0.3em;
+          margin-top: 0.55em;
+          display: none;
+
+          &.in {
+            display: inline-block;
+          }
         }
     }
 
@@ -116,7 +121,7 @@ p {
         }
         .nav > li > a,
         .nav > li > a:focus {
-            color: fade(white, 70%);
+            color: fade(white, 85%);
             &:hover {
                 color: white;
             }
@@ -124,6 +129,7 @@ p {
         &.affix {
             background-color: rgba(255, 255, 255, .9);
             border-color: fade(@gray-darker, 10%);
+
             .navbar-header .navbar-brand {
                 color: @gray-darker;
                 &:hover,
@@ -131,6 +137,7 @@ p {
                     color: @theme-primary;
                 }
             }
+
             .nav > li > a,
             .nav > li > a:focus {
                 color: @gray-darker;
@@ -287,7 +294,7 @@ section.techstack {
         }
         img {
           max-width: 5em;
-          
+
         }
     }
 }
@@ -363,11 +370,15 @@ footer {
         & address {
           margin-bottom: 0;
         }
-      }
 
-      @media @screen-sm {
-        .footer-section.right {
-          text-align: right;
+        &.right {
+          a {
+            margin-right: 10px;
+          }
+
+          a:last-child {
+            margin-right: 0;
+          }
         }
       }
     }

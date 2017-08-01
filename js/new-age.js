@@ -22,10 +22,16 @@
   });
 
   // Offset for Main Navigation
-  $('#mainNav').affix({
-    offset: {
-      top: 50
-    }
+  $('#mainNav').affix({ offset: { top: 50 } });
+  $('#mainNav').on('affix.bs.affix', function(){
+    // Occurs *after* the affix has been applied. Swap out the image for the colored one.
+    $('#header-logo').addClass('in');
+    $('#header-logo-mono').removeClass('in');
+  });
+  $('#mainNav').on('affix-top.bs.affix', function(){
+    // Occurs *after* the affix has been removed. Swap out the image for the monochrome one.
+    $('#header-logo').removeClass('in');
+    $('#header-logo-mono').addClass('in');
   });
 
   // Button handler
