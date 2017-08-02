@@ -309,7 +309,7 @@
         </div>
       </div>
       <div class="row">
-        <form class="col-md-6 col-md-push-3">
+        <form id="contact-us" class="col-md-6 col-md-push-3">
           <div class="form-group col-xs-12 col-sm-12 col-md-12">
             <div class="btn-group" data-toggle="buttons">
               <label id="simple-form" class="btn btn-primary">
@@ -320,25 +320,26 @@
               </label>
             </div>
           </div>
-          <div class="form-group detailed col-md-12">
+          <div class="form-group detailed col-xs-12 col-sm-12 col-md-12">
             <label for="company">Company Name</label>
-            <input type="company" class="form-control" id="company">
+            <input type="company_name" class="form-control" id="company">
           </div>
-          <div class="form-group col-md-12">
+          <div class="form-group col-xs-12 col-sm-12 col-md-12">
             <label for="name">Name</label>
-            <input type="name" class="form-control" id="name">
+            <input name="customer_name" type="name" class="form-control" id="name" required>
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col-xs-6 col-sm-6 col-md-6">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email">
+            <input name="customer_email" type="email" class="form-control" id="email" required>
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col-xs-6 col-sm-6 col-md-6">
             <label for="phone">Phone Number</label>
-            <input type="phone" class="form-control" id="phone">
+            <input name="customer_phone" type="tel" class="form-control" id="phone" required>
           </div>
-          <div class="form-group detailed col-md-6">
+          <div class="form-group detailed col-xs-12 col-sm-6 col-md-6">
             <label for="project-type">Type of Project</label>
-            <select class="form-control" id="project-type">
+            <select name="project_type" class="form-control" id="project-type">
+              <option disabled selected value style="display: none"></option>
               <option>Custom Software</option>
               <option>Web Solution</option>
               <option>Mobile App</option>
@@ -346,20 +347,21 @@
               <option>Integration</option>
             </select>
           </div>
-          <div class="form-group detailed col-md-6">
-            <label for="project-type">Estimated Budget</label>
-            <select class="form-control" id="project-type">
+          <div class="form-group detailed col-xs-12 col-sm-6 col-md-6">
+            <label for="budget">Estimated Budget</label>
+            <select name="budget" class="form-control" id="budget">
+              <option disabled selected value style="display: none"></option>
               <option>Under $25k</option>
               <option>$25k - $75k</option>
               <option>$75k - $150k</option>
               <option>$150k+</option>
             </select>
           </div>
-          <div class="form-group col-md-12">
+          <div class="form-group col-xs-12 col-sm-12 col-md-12">
             <label for="description">How Can We Help?</label>
-            <textarea name="description" id="description" class="form-control description" maxlength="400" rows="2"></textarea>
+            <textarea name="message_html" id="description" class="form-control description" maxlength="400" rows="2"></textarea>
           </div>
-          <div class="form-group col-md-12">
+          <div class="form-group col-xs-12 col-sm-12 col-md-12">
             <button type="submit" class="submit btn btn-primary pull-right">Submit</button>
           </div>
         </form>
@@ -399,6 +401,9 @@
   <!-- Plugin JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
+
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
   <!-- Theme JavaScript -->
   <script src="lp/js/new-age.min.js"></script>
