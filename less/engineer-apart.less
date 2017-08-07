@@ -221,8 +221,15 @@ header {
         .header-content-inner {
             margin: 0;
             transform: translateY(-50%);
+
             h1 {
                 font-size: 35px;
+            }
+
+            @media @screen-xs {
+              h1 {
+                font-size: 26px;
+              }
             }
         }
     }
@@ -425,12 +432,8 @@ footer {
         }
 
         &.right {
-          a {
-            margin-right: 10px;
-          }
-
-          a:last-child {
-            margin-right: 0;
+          i {
+            margin-right: 5px;
           }
         }
       }
@@ -440,9 +443,9 @@ footer {
 // Bootstrap Overrides
 
 .bg-primary {
-    background: @theme-primary;
-    background: -webkit-linear-gradient(@theme-primary , darken(@theme-primary, 5%));
-    background: linear-gradient(@theme-primary , darken(@theme-primary, 5%));
+  background: @theme-primary;
+  background: -webkit-linear-gradient(@theme-primary , darken(@theme-primary, 5%));
+  background: linear-gradient(@theme-primary , darken(@theme-primary, 5%));
 }
 
 .text-primary {
