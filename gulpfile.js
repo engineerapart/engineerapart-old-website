@@ -60,14 +60,6 @@ gulp.task('copy-img', function () {
     .pipe(gulp.dest('./static/lp/img'))
 })
 
-// Copy index.hmml
-// gulp.task('copy-html', function () {
-//   gulp.src([
-//     'index.html',
-//   ])
-//     .pipe(gulp.dest('./static/'))
-// });
-
 // Google Analytics
 gulp.task('ga', function () {
   gulp.src('./index.html')
@@ -75,8 +67,15 @@ gulp.task('ga', function () {
     .pipe(gulp.dest('./static/'));
 });
 
-// TEST TEST TEST
+// Convert Pug template to html
 gulp.task('pug', function buildHTML() {
+  return gulp.src('./html/*.pug')
+    .pipe(pug())
+    .pipe(gulp.dest('./static/'));
+});
+
+// Convert Pug template to html
+gulp.task('pug-dev', function buildHTML() {
   return gulp.src('./html/*.pug')
     .pipe(pug({
       pretty: true
@@ -85,10 +84,10 @@ gulp.task('pug', function buildHTML() {
 });
 
 // Run everything
-gulp.task('default', ['minify-css', 'minify-js', 'copy-img','ga']);
+gulp.task('default', ['minify-css', 'minify-js', 'copy-img', 'pug', 'ga']);
 
 // Dev build
-gulp.task('build-dev', ['minify-css', 'minify-js', 'copy-img', 'pug']);
+gulp.task('build-dev', ['minify-css', 'minify-js', 'copy-img', 'pug-dev']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function () {
@@ -101,11 +100,11 @@ gulp.task('browserSync', function () {
 
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'minify-css', 'minify-js', 'copy-img', 'pug'], function () {
+gulp.task('dev', ['browserSync', 'minify-css', 'minify-js', 'copy-img', 'pug-dev'], function () {
   gulp.watch('less/*.less', ['less']);
   gulp.watch('css/*.css', ['minify-css']);
   gulp.watch('js/*.js', ['minify-js']);
   // Reloads the browser whenever HTML or JS files change
-  gulp.watch('./html/index.pug', ['pug', browserSync.reload]);
+  gulp.watch('./html/index.pug', ['pug-dev', browserSync.reload]);
   gulp.watch('js/**/*.js', browserSync.reload);
 });
