@@ -71,6 +71,22 @@ p {
             display: inline-block;
           }
         }
+
+        @media @screen-xs {
+          .logo {
+            height: 35px;
+            margin-top: 0.45em;
+            display: inline-block;
+
+            &.in {
+              display: inline-block;
+            }
+          }
+
+          #header-logo-mono {
+            display: none;
+          }
+        }
     }
 
     @media @screen-xs {
