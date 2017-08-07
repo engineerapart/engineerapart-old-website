@@ -8,6 +8,7 @@ var uglify = require('gulp-uglify');
 var pkg = require('./package.json');
 var ga = require('gulp-ga');
 var pug = require('gulp-pug');
+var ghPages = require('gulp-gh-pages');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -107,4 +108,13 @@ gulp.task('dev', ['browserSync', 'minify-css', 'minify-js', 'copy-img', 'pug-dev
   // Reloads the browser whenever HTML or JS files change
   gulp.watch('./html/index.pug', ['pug-dev', browserSync.reload]);
   gulp.watch('js/**/*.js', browserSync.reload);
+});
+
+
+// Deploy
+gulp.task('deploy', ['default'], function() {
+  return gulp.src('./static/**/*')
+    .pipe(ghPages({
+      branch: 'master'
+    }));
 });
