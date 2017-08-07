@@ -7,6 +7,7 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var pkg = require('./package.json');
 var ga = require('gulp-ga');
+var pug = require('gulp-pug');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -41,7 +42,7 @@ gulp.task('minify-css', ['less'], function () {
 
 // Minify JS
 gulp.task('minify-js', function () {
-  return gulp.src(['js/engineer-apart.js','js/jquery.BlackAndWhite.js'])
+  return gulp.src(['js/engineer-apart.js','js/jquery.BlackAndWhite.js','js/location-map.js'])
     .pipe(uglify())
     .pipe(header(banner, { pkg: pkg }))
     .pipe(rename({ suffix: '.min' }))
@@ -60,12 +61,12 @@ gulp.task('copy-img', function () {
 })
 
 // Copy index.hmml
-gulp.task('copy-html', function () {
-  gulp.src([
-    'index.html',
-  ])
-    .pipe(gulp.dest('./static/'))
-});
+// gulp.task('copy-html', function () {
+//   gulp.src([
+//     'index.html',
+//   ])
+//     .pipe(gulp.dest('./static/'))
+// });
 
 // Google Analytics
 gulp.task('ga', function () {
@@ -74,11 +75,20 @@ gulp.task('ga', function () {
     .pipe(gulp.dest('./static/'));
 });
 
+// TEST TEST TEST
+gulp.task('pug', function buildHTML() {
+  return gulp.src('./html/*.pug')
+    .pipe(pug({
+      pretty: true
+    }))
+    .pipe(gulp.dest('./static/'));
+});
+
 // Run everything
 gulp.task('default', ['minify-css', 'minify-js', 'copy-img','ga']);
 
 // Dev build
-gulp.task('build-dev', ['minify-css', 'minify-js', 'copy-img', 'copy-html']);
+gulp.task('build-dev', ['minify-css', 'minify-js', 'copy-img', 'pug']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function () {
@@ -91,11 +101,11 @@ gulp.task('browserSync', function () {
 
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'minify-css', 'minify-js', 'copy-img', 'copy-html'], function () {
+gulp.task('dev', ['browserSync', 'minify-css', 'minify-js', 'copy-img', 'pug'], function () {
   gulp.watch('less/*.less', ['less']);
   gulp.watch('css/*.css', ['minify-css']);
   gulp.watch('js/*.js', ['minify-js']);
   // Reloads the browser whenever HTML or JS files change
-  gulp.watch('index.html', ['copy-html', browserSync.reload]);
+  gulp.watch('./html/index.pug', ['pug', browserSync.reload]);
   gulp.watch('js/**/*.js', browserSync.reload);
 });
