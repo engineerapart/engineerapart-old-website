@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
 var browserSync = require('browser-sync').create();
-var header = require('gulp-header');
 var cleanCSS = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
@@ -10,20 +9,11 @@ var ga = require('gulp-ga');
 var pug = require('gulp-pug');
 var ghPages = require('gulp-gh-pages');
 
-// Set the banner content
-var banner = ['/*!\n',
-  ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-  ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n',
-  ' */\n',
-  ''
-].join('');
 
 // Compile LESS files from /less into /css
 gulp.task('less', function () {
   return gulp.src('less/engineer-apart.less')
     .pipe(less())
-    .pipe(header(banner, { pkg: pkg }))
     .pipe(gulp.dest('css'))
     .pipe(browserSync.reload({
       stream: true
@@ -45,7 +35,6 @@ gulp.task('minify-css', ['less'], function () {
 gulp.task('minify-js', function () {
   return gulp.src(['js/engineer-apart.js','js/jquery.BlackAndWhite.js','js/location-map.js'])
     .pipe(uglify())
-    .pipe(header(banner, { pkg: pkg }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('./static/lp/js'))
     .pipe(browserSync.reload({
