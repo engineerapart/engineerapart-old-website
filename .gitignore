@@ -2,3 +2,4 @@ node_modules
 static
 css
 npm-debug.log
+.publish
