@@ -35,39 +35,7 @@
   });
 
   // Form button handler
-  var isDetailedForm = false;
   emailjs.init('user_58tWRHJDNJaH4a2Av20ih');
-
-  var handleToggle = function (target, other, showDetailed) {
-    target.removeClass('btn-default');
-    target.addClass('btn-primary');
-
-    other.addClass('btn-default');
-    other.removeClass('btn-primary');
-
-    if (showDetailed) {
-      $('.detailed').css('display', 'inherit');
-      isDetailedForm = true;
-    } else {
-      $('.detailed').css('display', 'none');
-      isDetailedForm = false;
-    }
-  }
-
-  $('#simple-form').click(function (event) {
-    event.preventDefault();
-    handleToggle($(this), $('#detailed-form'), false);
-    $('#project-type').prop('selectedIndex', 0);
-    $('#budget').prop('selectedIndex', 0);
-  });
-
-  $('#detailed-form').click(function (event) {
-    event.preventDefault();
-    handleToggle($(this), $('#simple-form'), true);
-    $('#project-type').prop('selectedIndex', 1);
-    $('#budget').prop('selectedIndex', 1);
-  });
-
   $('form#contact-us').submit(function (event) {
     event.preventDefault();
     var contactUsForm = $(this);
