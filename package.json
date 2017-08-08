@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npm run build",
     "start:dev": "export NODE_ENV=development && gulp dev",
-    "build": "rm -rf ./static && export NODE_ENV=production && gulp ",
+    "build": "export NODE_ENV=production && gulp ",
     "build:dev": "export NODE_ENV=development && gulp build-dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "export NODE_ENV=production && gulp deploy"
