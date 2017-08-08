@@ -25,7 +25,7 @@ gulp.task('minify-css', ['less'], function () {
   return gulp.src('css/engineer-apart.css')
     .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('./static/lp/css'))
+    .pipe(gulp.dest('./static/css'))
     .pipe(browserSync.reload({
       stream: true
     }))
@@ -36,10 +36,18 @@ gulp.task('minify-js', function () {
   return gulp.src(['js/engineer-apart.js','js/jquery.BlackAndWhite.js','js/location-map.js'])
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('./static/lp/js'))
+    .pipe(gulp.dest('./static/js'))
     .pipe(browserSync.reload({
       stream: true
     }))
+});
+
+// Copy CNAME
+gulp.task('copy-cname', function () {
+  gulp.src([
+    './CNAME',
+  ])
+  .pipe(gulp.dest('./static'))
 });
 
 // Copy assets
@@ -47,8 +55,8 @@ gulp.task('copy-img', function () {
   gulp.src([
     'img/**',
   ])
-    .pipe(gulp.dest('./static/lp/img'))
-})
+  .pipe(gulp.dest('./static/img'))
+});
 
 // Google Analytics
 gulp.task('ga', function () {
@@ -60,21 +68,14 @@ gulp.task('ga', function () {
 // Convert Pug template to html
 gulp.task('pug', function buildHTML() {
   return gulp.src('./html/*.pug')
-    .pipe(pug())
-    .pipe(gulp.dest('./static/'));
-});
-
-// Convert Pug template to html
-gulp.task('pug-dev', function buildHTML() {
-  return gulp.src('./html/*.pug')
     .pipe(pug({
-      pretty: true
+      pretty: process.env.NODE_ENV === 'development'
     }))
     .pipe(gulp.dest('./static/'));
 });
 
 // Run everything
-gulp.task('default', ['minify-css', 'minify-js', 'copy-img', 'pug', 'ga']);
+gulp.task('default', ['minify-css', 'minify-js', 'copy-img', 'pug', 'ga', 'copy-cname']);
 
 // Dev build
 gulp.task('build-dev', ['minify-css', 'minify-js', 'copy-img', 'pug-dev']);
@@ -90,7 +91,7 @@ gulp.task('browserSync', function () {
 
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'minify-css', 'minify-js', 'copy-img', 'pug-dev'], function () {
+gulp.task('dev', ['browserSync', 'minify-css', 'minify-js', 'copy-img', 'pug'], function () {
   gulp.watch('less/*.less', ['less']);
   gulp.watch('css/*.css', ['minify-css']);
   gulp.watch('js/*.js', ['minify-js']);
