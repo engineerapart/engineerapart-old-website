@@ -66,11 +66,16 @@ gulp.task('pug', function buildHTML() {
     }))
     .pipe(gulp.dest('./static/'));
 });
-  
+
 // Google Analytics
 gulp.task('ga', ['pug'], function () {
   gulp.src('./static/index.html')
-    .pipe(ga({ url: 'engineerapart.com', uid: 'UA-104209956-1' }))
+    .pipe(ga({
+      url: 'engineerapart.com',
+      uid: 'UA-104209956-1',
+      anonymizeIp: false,
+      sendPageView: true,
+    }))
     .pipe(gulp.dest('./static/'));
 });
 
