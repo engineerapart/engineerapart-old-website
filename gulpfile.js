@@ -60,8 +60,8 @@ gulp.task('copy-img', function () {
 
 // Google Analytics
 gulp.task('ga', function () {
-  gulp.src('./index.html')
-    .pipe(ga({ url: 'qeeply.com', uid: 'UA-92898794-1' }))
+  gulp.src('./static/index.html')
+    .pipe(ga({ url: 'engineerapart.com', uid: 'UA-104209956-1' }))
     .pipe(gulp.dest('./static/'));
 });
 
@@ -78,7 +78,7 @@ gulp.task('pug', function buildHTML() {
 gulp.task('default', ['minify-css', 'minify-js', 'copy-img', 'pug', 'ga', 'copy-cname']);
 
 // Dev build
-gulp.task('build-dev', ['minify-css', 'minify-js', 'copy-img', 'pug-dev']);
+gulp.task('build-dev', ['minify-css', 'minify-js', 'copy-img', 'pug']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function () {
@@ -89,17 +89,15 @@ gulp.task('browserSync', function () {
   })
 })
 
-
 // Dev task with browserSync
 gulp.task('dev', ['browserSync', 'minify-css', 'minify-js', 'copy-img', 'pug'], function () {
   gulp.watch('less/*.less', ['less']);
   gulp.watch('css/*.css', ['minify-css']);
   gulp.watch('js/*.js', ['minify-js']);
   // Reloads the browser whenever HTML or JS files change
-  gulp.watch('./html/index.pug', ['pug-dev', browserSync.reload]);
+  gulp.watch('./html/index.pug', ['pug', browserSync.reload]);
   gulp.watch('js/**/*.js', browserSync.reload);
 });
-
 
 // Deploy
 gulp.task('deploy', ['default'], function() {
