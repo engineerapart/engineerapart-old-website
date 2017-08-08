@@ -58,19 +58,19 @@ gulp.task('copy-img', function () {
   .pipe(gulp.dest('./static/img'))
 });
 
-// Google Analytics
-gulp.task('ga', function () {
-  gulp.src('./static/index.html')
-    .pipe(ga({ url: 'engineerapart.com', uid: 'UA-104209956-1' }))
-    .pipe(gulp.dest('./static/'));
-});
-
 // Convert Pug template to html
 gulp.task('pug', function buildHTML() {
   return gulp.src('./html/*.pug')
     .pipe(pug({
       pretty: process.env.NODE_ENV === 'development'
     }))
+    .pipe(gulp.dest('./static/'));
+});
+  
+// Google Analytics
+gulp.task('ga', ['pug'], function () {
+  gulp.src('./static/index.html')
+    .pipe(ga({ url: 'engineerapart.com', uid: 'UA-104209956-1' }))
     .pipe(gulp.dest('./static/'));
 });
 
