@@ -239,13 +239,13 @@ function initMap() {
     }
   ];
   var styledMap = new google.maps.StyledMapType(styles,
-    { name: "Styled Map" })
-    ;
+    { name: "Styled Map" });
   var mapOptions = {
     zoom: 12,
     scrollwheel: false,
     draggable: !("ontouchend" in document),
     center: new google.maps.LatLng(37.3902956, -121.8961047),
+    mapTypeControl: false,
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
     }
