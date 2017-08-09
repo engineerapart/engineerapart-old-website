@@ -42,7 +42,7 @@ h6 {
 }
 
 p {
-    font-size: 18px;
+    font-size: 1.2em;
     line-height: 1.5;
     margin-bottom: 20px;
 }
@@ -267,9 +267,12 @@ section.services {
   background: -webkit-linear-gradient(darken(@gray-lightest, 5%), @gray-lightest);
   background: linear-gradient(darken(@gray-lightest, 5%), @gray-lightest);
   .container .row {
-    padding: 3em;
+    padding: 1.5em 1em;
     h3 {
       font-weight: 600;
+      margin-top: 0;
+      padding-top: 0;
+      padding-bottom: 1em;
     }
     p {
       padding-top: 2em;
@@ -505,53 +508,4 @@ img::-moz-selection {
 
 body {
     -webkit-tap-highlight-color: @gray-darker;
-}
-
-#mc_embed_signup {
-  clear: left;
-  font-weight: 400;
-  color: @theme-tertiary;
-
-  label {
-    color: white;
-  }
-
-  .signup-button-container {
-    display: flex;
-    justify-content: center;
-  }
-
-  #btn-subscribe {
-    background: transparent;
-    color: white;
-    border-color: white;
-    border: 1px solid;
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      color: white;
-      background-color: @theme-primary;
-      border-color: @theme-primary;
-    }
-    .alt-font;
-    border-radius: 300px;
-    padding: 15px 45px;
-    font-size: 11px;
-    margin: auto;
-  }
-
-  #mc-embedded-subscribe-form {
-    div.mce_inline_error {
-      background-color: transparent;
-    }
-
-    input.mce_inline_error {
-      background-color: white;
-    }
-  }
-
-  .mce_inline_error {
-    background-color: transparent;
-  }
 }
