@@ -1,3 +1,6 @@
+include carousel
+include icons
+
 doctype html
 html(lang="en")
 head
@@ -235,6 +238,10 @@ body(id="page-top")
           div.section-heading
             h2 Past Projects
             hr
+            div.row.carousel-container.container-fluid
+              +carousel('past-projects', 'col-md-7', carouselEntries)
+              .project-info.col-md-5
+                span.project-title Some stuff
   hr.thick
 
   //- About section

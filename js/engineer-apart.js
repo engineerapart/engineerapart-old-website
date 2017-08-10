@@ -59,7 +59,7 @@
 
     var service_id = 'default_service';
     var template_id = 'new_customer_request';
-    
+
     emailjs.sendForm(service_id, template_id, 'contact-us')
       .then(function () {
         $.notify('Thank you for your message!\n We will get back to you shortly.', 'success');
@@ -87,4 +87,12 @@
       }
     } }
   });
-})(jQuery, window); // End of use strict
+
+  $("#carousel-past-projects").on('slid.bs.carousel', function () {
+    // This variable contains all kinds of data and methods related to the carousel
+    var carouselData = $(this).data('bs.carousel');
+    var currentSlide = carouselData.getItemIndex(carouselData.$element.find('.item.active'));
+    console.log('A new slide was just shown: ', carouselData, currentSlide);
+  });
+
+})(jQuery); // End of use strict

@@ -9,6 +9,11 @@ var ga = require('gulp-ga');
 var pug = require('gulp-pug');
 var ghPages = require('gulp-gh-pages');
 
+const pastProjectsEntries = [
+  { id: 'rehab-guru', preview_url: '' },
+  { id: 'qeeply', preview_url: '' },
+  { id: 'kwik', preview_url: '' },
+];
 
 // Compile LESS files from /less into /css
 gulp.task('less', function () {
@@ -64,7 +69,10 @@ gulp.task('copy-img', function () {
 gulp.task('pug', function buildHTML() {
   return gulp.src('./html/*.pug')
     .pipe(pug({
-      pretty: process.env.NODE_ENV === 'development'
+      pretty: process.env.NODE_ENV === 'development',
+      locals: {
+        carouselEntries: pastProjectsEntries,
+      }
     }))
     .pipe(gulp.dest('./static/'));
 });

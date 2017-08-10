@@ -338,6 +338,37 @@ section.techstack {
 
 section.projects {
   text-align: center;
+
+  .carousel-container {
+    padding: 0;
+
+    .carousel {
+      // max-width: 640px;
+      padding: 0;
+
+      .carousel-inner {
+        // max-height: 260px;
+      }
+
+      img.carousel-overlay-img {
+        opacity: 0.25;
+        width: 200%;
+        /* height: 260px; */
+      }
+
+      .carousel-control {
+        max-width: 2em;
+        font-size: 3.5em;
+
+        span.fa {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          padding-bottom: 0.5em;
+        }
+      }
+    }
+  }
 }
 
 section.about {
