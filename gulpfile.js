@@ -11,6 +11,8 @@ var ga = require('gulp-ga');
 var pug = require('gulp-pug');
 var ghPages = require('gulp-gh-pages');
 
+var cachebust = require('./scripts/gulp-cache-bust');
+
 const pastProjectsEntries = [
   {
     id: 'engineer-apart',
@@ -113,14 +115,19 @@ gulp.task('copy-img', function () {
 
 // Convert Pug template to html
 gulp.task('pug', function buildHTML() {
-  return gulp.src('./html/*.pug')
+  var gulpSrc = gulp.src('./html/index.pug')
     .pipe(pug({
       pretty: process.env.NODE_ENV === 'development',
       locals: {
         carouselEntries: pastProjectsEntries,
       }
-    }))
-    .pipe(gulp.dest('./static/'));
+    }));
+
+    if (process.env.NODE_ENV === 'production') {
+      gulpSrc = gulpSrc.pipe(cachebust({ type: 'timestamp' }));
+    }
+
+    return gulpSrc.pipe(gulp.dest('./static/'));
 });
 
 // Google Analytics

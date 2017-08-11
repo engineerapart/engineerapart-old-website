@@ -9,7 +9,11 @@
         var H = $(this).height(),
           r = el.getBoundingClientRect(), t = r.top, b = r.bottom;
         return cb.call(el, Math.max(0, t > 0 ? H - t : (b < H ? b : H)));
-      } visPx();
+      }
+      // the "scroll restore" fires AFTER document ready - so if you are already scrolled,
+      // the initial call to visPx() won't have any effect unless we do it later.
+      // Scroll restore has no events.
+      setTimeout(visPx, 500);
       $(win).on("resize scroll", visPx);
     });
   };
@@ -104,4 +108,4 @@
     $(projectInfoItems[nextIndex]).addClass('active');
   });
 
-})(jQuery); // End of use strict
+})(jQuery, window); // End of use strict
