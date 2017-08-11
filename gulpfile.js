@@ -17,7 +17,7 @@ gulp.task('less', function () {
     .pipe(gulp.dest('css'))
     .pipe(browserSync.reload({
       stream: true
-    }))
+    }));
 });
 
 // Minify compiled CSS
@@ -28,35 +28,36 @@ gulp.task('minify-css', ['less'], function () {
     .pipe(gulp.dest('./static/css'))
     .pipe(browserSync.reload({
       stream: true
-    }))
+    }));
 });
 
 // Minify JS
 gulp.task('minify-js', function () {
-  var gulpSrc = gulp.src(['js/engineer-apart.js','js/jquery.BlackAndWhite.js','js/location-map.js']);
+  var gulpSrc = gulp.src(['js/engineer-apart.js','js/location-map.js']);
   if (process.env.NODE_ENV === 'production') gulpSrc = gulpSrc.pipe(uglify());
   return gulpSrc
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('./static/js'))
     .pipe(browserSync.reload({
       stream: true
-    }))
+    }));
 });
 
-// Copy CNAME
-gulp.task('copy-cname', function () {
-  gulp.src([
-    './CNAME',
-  ])
-  .pipe(gulp.dest('./static'))
+// Copy root assets
+gulp.task('copy-root', function () {
+  return gulp.src([
+      './CNAME',
+      './favicon.png'
+    ])
+    .pipe(gulp.dest('./static'));
 });
 
-// Copy assets
+// Copy img assets
 gulp.task('copy-img', function () {
-  gulp.src([
-    'img/**',
-  ])
-  .pipe(gulp.dest('./static/img'))
+  return gulp.src([
+      'img/**',
+    ])
+    .pipe(gulp.dest('./static/img'));
 });
 
 // Convert Pug template to html
@@ -70,7 +71,7 @@ gulp.task('pug', function buildHTML() {
 
 // Google Analytics
 gulp.task('ga', ['pug'], function () {
-  gulp.src('./static/index.html')
+  return gulp.src('./static/index.html')
     .pipe(ga({
       url: 'engineerapart.com',
       uid: 'UA-104209956-1',
@@ -81,10 +82,10 @@ gulp.task('ga', ['pug'], function () {
 });
 
 // Run everything
-gulp.task('default', ['minify-css', 'minify-js', 'copy-img', 'pug', 'ga', 'copy-cname']);
+gulp.task('default', ['minify-css', 'minify-js', 'copy-root', 'copy-img', 'pug', 'ga']);
 
 // Dev build
-gulp.task('build-dev', ['minify-css', 'minify-js', 'copy-img', 'pug']);
+gulp.task('build-dev', ['minify-css', 'minify-js', 'copy-root', 'copy-img', 'pug']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function () {
@@ -96,7 +97,7 @@ gulp.task('browserSync', function () {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'minify-css', 'minify-js', 'copy-img', 'pug'], function () {
+gulp.task('dev', ['browserSync', 'minify-css', 'minify-js', 'copy-root', 'copy-img', 'pug'], function () {
   gulp.watch('less/*.less', ['less']);
   gulp.watch('css/*.css', ['minify-css']);
   gulp.watch('js/*.js', ['minify-js']);
