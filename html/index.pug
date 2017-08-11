@@ -1,4 +1,5 @@
 include carousel
+include project-info
 include icons
 
 doctype html
@@ -180,6 +181,7 @@ body(id="page-top")
         div.col-lg-12.text-center
           div.section-heading
             h2 Tech Stack
+            hr
       div.row
         div.col-xs-3.col-md-3
           div.feature-item
@@ -234,14 +236,13 @@ body(id="page-top")
   section#projects.projects
     div.container
         div.row
-        div.col-lg-12.text-center
-          div.section-heading
-            h2 Past Projects
-            hr
-            div.row.carousel-container.container-fluid
-              +carousel('past-projects', 'col-md-7', carouselEntries)
-              .project-info.col-md-5
-                span.project-title Some stuff
+          div.col-lg-12.text-center
+            div.section-heading
+              h2 Past Projects
+              hr
+        div.row.carousel-container.container-fluid
+          +carousel('past-projects', 'col-md-7', carouselEntries)
+          +project-info(carouselEntries)
   hr.thick
 
   //- About section
@@ -257,7 +258,7 @@ body(id="page-top")
                 div.imgBlackAndWhite
                   h3 Patrick Sears
                   img.img-circle.grayscale(src="img/kiky-tangerine.jpg")
-                  p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tellus sapien, volutpat vitae semper vel, varius quis erat. Aliquam lobortis mauris at convallis consectetur.
+                  p With extensive experience in many different platforms over a 16 year software development career, Patrick brings passion, creativity and expertise to bear on any web development project.
               div.col-xs-12.col-sm-4
                 div.imgBlackAndWhite
                   h3 Barry Steyn

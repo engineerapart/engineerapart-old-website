@@ -88,11 +88,20 @@
     } }
   });
 
-  $("#carousel-past-projects").on('slid.bs.carousel', function () {
+  $("#carousel-past-projects").on('slide.bs.carousel', function (event) {
+    var activeProjectItem = $('.project-item.active');
+    var projectInfoItems = $('.project-item');
+
     // This variable contains all kinds of data and methods related to the carousel
     var carouselData = $(this).data('bs.carousel');
     var currentSlide = carouselData.getItemIndex(carouselData.$element.find('.item.active'));
-    console.log('A new slide was just shown: ', carouselData, currentSlide);
+
+    var nextIndex = event.direction === 'left' ? currentSlide + 1 : currentSlide - 1;
+    if (nextIndex < 0) { nextIndex = projectInfoItems.length - 1; }
+    else if (nextIndex >= projectInfoItems.length) { nextIndex = 0; }
+
+    activeProjectItem.removeClass('active');
+    $(projectInfoItems[nextIndex]).addClass('active');
   });
 
 })(jQuery); // End of use strict

@@ -1,10 +1,10 @@
 //- carousel caption
 mixin carousel-caption(item)
   span.carousel-caption
-    unless !item.name
-      h1 #{item.name}
-    unless !item.description
-      p #{item.description}
+    unless !item.title
+      h3 #{item.title}
+    unless !item.subtitle
+      p!= item.subtitle
     unless !item.button
       p
         a.btn.btn-lg.btn-primary(href=item.button.url role="button") #{item.button.caption}
@@ -25,8 +25,8 @@ mixin carousel(id,carouselClass,items)
       each item,index in items
         //- if(index === 0)
         .item(class= (index === 0 ? 'active' : ''))
-          a.carousel-link.image(href='/v/'+item.id, style="background-image: url('"+item.preview_url+"')")
-          a.carousel-link(href='/v/'+item.id)
+          a.carousel-link.image(href=item.link, target='_blank', style="background-image: url('"+item.preview_url+"')")
+          a.carousel-link(href=item.link, target='_blank')
             +carousel-caption(item)
             .carousel-overlay
               img.carousel-overlay-img(src='img/FeatureOverlay.svg')
