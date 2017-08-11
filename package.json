@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npm run build",
     "start:dev": "export NODE_ENV=development && gulp dev",
-    "build": "export NODE_ENV=production && gulp ",
+    "build": "rimraf ./static && export NODE_ENV=production && gulp ",
     "build:dev": "export NODE_ENV=development && gulp build-dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "export NODE_ENV=production && gulp deploy"
@@ -30,7 +30,19 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.4",
     "install": "^0.10.1",
-    "jquery": "^1.11.3"
+    "jquery": "^1.11.3",
+    "rimraf": "^2.6.1"
   },
-  "browserslist": [ "> 1%", "last 2 versions" ]
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "graceful-fs": "^4.1.11",
+    "gulp-util": "^3.0.8",
+    "map-stream": "^0.0.7",
+    "md5": "^2.2.1",
+    "temp-write": "^3.3.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
