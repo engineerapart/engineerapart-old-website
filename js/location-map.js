@@ -243,6 +243,7 @@ function initMap() {
   var mapOptions = {
     zoom: 12,
     scrollwheel: false,
+    gestureHandling: 'none',
     draggable: !("ontouchend" in document),
     center: new google.maps.LatLng(37.3902956, -121.8961047),
     mapTypeControl: false,
