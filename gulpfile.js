@@ -47,7 +47,7 @@ gulp.task('minify-js', function () {
 gulp.task('copy-root', function () {
   return gulp.src([
       './CNAME',
-      './favicon.png'
+      './favicons/**'
     ])
     .pipe(gulp.dest('./static'));
 });
