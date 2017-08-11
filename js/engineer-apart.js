@@ -59,7 +59,7 @@
 
     var service_id = 'default_service';
     var template_id = 'new_customer_request';
-    
+
     emailjs.sendForm(service_id, template_id, 'contact-us')
       .then(function () {
         $.notify('Thank you for your message!\n We will get back to you shortly.', 'success');
@@ -87,4 +87,21 @@
       }
     } }
   });
-})(jQuery, window); // End of use strict
+
+  $("#carousel-past-projects").on('slide.bs.carousel', function (event) {
+    var activeProjectItem = $('.project-item.active');
+    var projectInfoItems = $('.project-item');
+
+    // This variable contains all kinds of data and methods related to the carousel
+    var carouselData = $(this).data('bs.carousel');
+    var currentSlide = carouselData.getItemIndex(carouselData.$element.find('.item.active'));
+
+    var nextIndex = event.direction === 'left' ? currentSlide + 1 : currentSlide - 1;
+    if (nextIndex < 0) { nextIndex = projectInfoItems.length - 1; }
+    else if (nextIndex >= projectInfoItems.length) { nextIndex = 0; }
+
+    activeProjectItem.removeClass('active');
+    $(projectInfoItems[nextIndex]).addClass('active');
+  });
+
+})(jQuery); // End of use strict

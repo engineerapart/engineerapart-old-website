@@ -1,3 +1,7 @@
+include carousel
+include project-info
+include icons
+
 doctype html
 html(lang="en")
 head
@@ -40,21 +44,8 @@ head
     crossorigin="anonymous"
   )
 
-  //- Icons
-  link(
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
-  )
-
   //- Engineer Apart Custom Theme
   link(href="css/engineer-apart.min.css" rel="stylesheet")
-
-  //- IE compatibility
-  //
-    [if lt IE 9]
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    [endif]
 
 body(id="page-top")
 
@@ -177,6 +168,7 @@ body(id="page-top")
         div.col-lg-12.text-center
           div.section-heading
             h2 Tech Stack
+            hr
       div.row
         div.col-xs-3.col-md-3
           div.feature-item
@@ -231,10 +223,13 @@ body(id="page-top")
   section#projects.projects
     div.container
         div.row
-        div.col-lg-12.text-center
-          div.section-heading
-            h2 Past Projects
-            hr
+          div.col-lg-12.text-center
+            div.section-heading
+              h2 Past Projects
+              hr
+        div.row.carousel-container.container-fluid
+          +carousel('past-projects', 'col-md-7', carouselEntries)
+          +project-info(carouselEntries)
   hr.thick
 
   //- About section
@@ -250,7 +245,7 @@ body(id="page-top")
                 div.imgBlackAndWhite
                   h3 Patrick Sears
                   img.img-circle.grayscale(src="img/kiky-tangerine.jpg")
-                  p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tellus sapien, volutpat vitae semper vel, varius quis erat. Aliquam lobortis mauris at convallis consectetur.
+                  p With extensive experience in many different platforms over a 16 year software development career, Patrick brings passion, creativity and expertise to bear on any web development project.
               div.col-xs-12.col-sm-4
                 div.imgBlackAndWhite
                   h3 Barry Steyn
@@ -324,16 +319,16 @@ body(id="page-top")
 
       div.footer-section.right.col-xs-12.col-sm-2
         div
-          i.icon-envelope
+          i.fa.fa-envelope-o
           a(href="mailto:info@engineerapart.com") info@engineerapart.com
         div
-          i.icon-phone
+          i.fa.fa-phone
           a(href="tel:+16506697563") +1 (650) 669-7563
         div.social-container
           a(href="https://github.com/engineerapart" target="_blank")
-            i.icon-social-github
+            i.fa.fa-github.fa-2x
           a(href="https://twitter.com/engineerapart" target="_blank")
-            i.icon-social-twitter
+            i.fa.fa-twitter.fa-2x
 
   //- JQuery
   script(

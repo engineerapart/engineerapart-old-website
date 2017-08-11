@@ -1,0 +1,19 @@
+//- Project info
+mixin project-info(items)
+  .project-info.col-md-5.clearfix
+    each item,index in items
+      .project-item(id=item.id, class= ( index === 0 ? 'active' : '' ))
+        .project-links.clearfix
+          unless !item.link
+            a.btn.btn-primary.project-link.pull-right(href=item.link, role='button', target='_blank') Website
+          unless !item.install_android
+            a.pull-right(href=item.install_android, target='_blank')
+              +icon('android fa-2x')
+          unless !item.install_ios
+            a.pull-right(href=item.install_ios, target='_blank')
+              +icon('apple fa-2x')
+        h3.project-title #{item.title}
+        p!= item.description
+        .technologies
+          span.strong Technologies used:&nbsp;&nbsp;
+          span #{item.technologies.join(', ')}

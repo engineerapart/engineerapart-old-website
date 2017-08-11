@@ -1,0 +1,40 @@
+//- carousel caption
+mixin carousel-caption(item)
+  span.carousel-caption
+    unless !item.title
+      h3 #{item.title}
+    unless !item.subtitle
+      p!= item.subtitle
+    unless !item.button
+      p
+        a.btn.btn-lg.btn-primary(href=item.button.url role="button") #{item.button.caption}
+
+//- carousel
+mixin carousel(id,carouselClass,items)
+  .carousel.slide(id="carousel-" + id ,data-ride="carousel", class=carouselClass)
+    //- Indicators
+    ol.carousel-indicators.hidden-xs
+      each item,index in items
+        if(index === 0)
+          li.active(data-target="#carousel-" + id, data-slide-to=index)
+        else
+          li(data-target="#carousel-" + id, data-slide-to=index)
+
+    //- Wrapper for slides
+    .carousel-inner(role="listbox")
+      each item,index in items
+        //- if(index === 0)
+        .item(class= (index === 0 ? 'active' : ''))
+          a.carousel-link.image(href=item.link, target='_blank', style="background-image: url('"+item.preview_url+"')")
+          a.carousel-link(href=item.link, target='_blank')
+            +carousel-caption(item)
+            .carousel-overlay
+              img.carousel-overlay-img(src='img/FeatureOverlay.svg')
+
+    //-  Controls
+    a.left.carousel-control(href="#carousel-" + id, role="button", data-slide="prev")
+      +icon("angle-left")
+      span.sr-only Previous
+    a.right.carousel-control(href="#carousel-" + id, role="button", data-slide="next")
+      +icon("angle-right")
+      span.sr-only Next
