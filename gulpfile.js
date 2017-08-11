@@ -33,7 +33,7 @@ gulp.task('minify-css', ['less'], function () {
 
 // Minify JS
 gulp.task('minify-js', function () {
-  var gulpSrc = gulp.src(['js/engineer-apart.js','js/jquery.BlackAndWhite.js','js/location-map.js']);
+  var gulpSrc = gulp.src(['js/engineer-apart.js','js/location-map.js']);
   if (process.env.NODE_ENV === 'production') gulpSrc = gulpSrc.pipe(uglify());
   return gulpSrc
     .pipe(rename({ suffix: '.min' }))
