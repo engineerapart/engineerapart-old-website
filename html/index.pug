@@ -27,11 +27,11 @@ head
     crossorigin="anonymous"
   )
 
-  //- Icons
+  //- CSS (Animate.css)
   link(
-    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+    integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
     crossorigin="anonymous"
   )
 
@@ -122,7 +122,7 @@ body(id="page-top")
       div.row
         div.col-md-6.text-center
           h3 CLOUD SERVICES
-          div.logo-container
+          div.logo-container.animated.from-left
             img.logo-bg(src="img/icon_BG_blue.png")
             img#cloud-services-service.logo(src="img/icon_cloud.png" alt="Cloud Icon" title="Cloud Services")
         div.col-md-6.text-left
@@ -131,7 +131,7 @@ body(id="page-top")
       div.row
         div.col-md-6.col-md-push-6.text-center
           h3 WEB SOLUTIONS
-          div.logo-container
+          div.logo-container.animated.from-right
             img.logo-bg(src="img/icon_BG_blue.png")
             img#web-solutions-service.logo(src="img/icon_websolution.png" alt="Web Solutions Icon" title="Responsive Web Solutions")
         div.col-md-6.col-md-pull-6.text-left
@@ -140,7 +140,7 @@ body(id="page-top")
       div.row
         div.col-md-6.text-center
           h3 MOBILE APPS
-          div.logo-container
+          div.logo-container.animated.from-left
             img.logo-bg(src="img/icon_BG_blue.png")
             img#mobile-apps-service.logo(src="img/icon_mobileapps.png" alt="Mobile Apps Icon" title="Mobile Applications")
         div.col-md-6.text-left
@@ -149,7 +149,7 @@ body(id="page-top")
       div.row
         div.col-md-6.col-md-push-6.text-center
           h3 INTEGRATIONS
-          div.logo-container
+          div.logo-container.animated.from-right
             img.logo-bg(src="img/icon_BG_blue.png")
             img#integrations-service.logo(src="img/icon_integrations.png" alt="Integrations Icon" title="Third-Party Integrations")
         div.col-md-6.col-md-pull-6.text-left
@@ -158,7 +158,7 @@ body(id="page-top")
       div.row
         div.col-md-6.text-center
           h3 CUSTOM SOFTWARE
-          div.logo-container
+          div.logo-container.animated.from-left
             img.logo-bg(src="img/icon_BG_blue.png")
             img#custom-software-service.logo(src="img/icon_customsoft.png" alt="Custom Software Icon" title="Custom Software Solutions")
         div.col-md-6.text-left

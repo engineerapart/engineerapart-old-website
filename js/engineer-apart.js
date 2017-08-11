@@ -1,5 +1,18 @@
-(function ($) {
+(function ($, win) {
   'use strict'; // Start of use strict
+
+  // Plugin for checking if element is within viewport
+  // https://stackoverflow.com/questions/27462306
+  $.fn.inViewport = function (cb) {
+    return this.each(function (i, el) {
+      function visPx() {
+        var H = $(this).height(),
+          r = el.getBoundingClientRect(), t = r.top, b = r.bottom;
+        return cb.call(el, Math.max(0, t > 0 ? H - t : (b < H ? b : H)));
+      } visPx();
+      $(win).on("resize scroll", visPx);
+    });
+  };
 
   // jQuery for page scrolling feature - requires jQuery Easing plugin
   $('a.page-scroll').bind('click', function (event) {
@@ -80,4 +93,18 @@
         // this callback gets executed anytime an image is converted
       }
   });
-})(jQuery); // End of use strict
+
+  $('.animated').inViewport(function (px) {
+    if (px) {
+      if ($(this).find('.logo').css('display') === 'none') {
+      $(this).find('.logo').css('display', 'flex');
+      $(this).find('.logo-bg').css('display', 'flex');
+
+      if ($(this).hasClass('from-left')) {
+        $(this).addClass('slideInLeft');
+      } else {
+        $(this).addClass('slideInRight');
+      }
+    } }
+  });
+})(jQuery, window); // End of use strict
