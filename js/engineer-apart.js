@@ -81,18 +81,18 @@
   $('.animated').inViewport(function (px) {
     if (px) {
       if ($(this).find('.logo').css('display') === 'none') {
-      $(this).find('.logo').css('display', 'flex');
-      $(this).find('.logo-bg').css('display', 'flex');
+        $(this).find('.logo').css('display', 'inline');
 
-      if ($(this).hasClass('from-left')) {
-        $(this).addClass('slideInLeft');
-      } else {
-        $(this).addClass('slideInRight');
+        if ($(this).hasClass('from-left')) {
+          $(this).addClass('slideInLeft');
+        } else {
+          $(this).addClass('slideInRight');
+        }
       }
-    } }
+    }
   });
 
-  $("#carousel-past-projects").on('slide.bs.carousel', function (event) {
+  $('#carousel-past-projects').on('slide.bs.carousel', function (event) {
     var activeProjectItem = $('.project-item.active');
     var projectInfoItems = $('.project-item');
 

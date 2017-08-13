@@ -276,17 +276,13 @@ section.services {
   .container .row {
     padding: 1.5em 1em;
     .logo-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       height: 11em;
 
-      .logo, .logo-bg {
+      .logo {
         display: none;
-        position: absolute;
 
-        @media @screen-sm {
-          display: flex;
+        @media @screen-xs {
+          display: inline;
         }
       }
     }
