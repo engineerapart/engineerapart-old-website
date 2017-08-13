@@ -43,9 +43,9 @@ h6 {
 }
 
 p {
-    font-size: 1.2em;
-    line-height: 1.5;
-    margin-bottom: 20px;
+  font-size: 1.1em;
+  line-height: 1.4;
+  margin-bottom: 20px;
 }
 
 @keyframes fadeIn {
@@ -276,14 +276,14 @@ section.services {
   .container .row {
     padding: 1.5em 1em;
     .logo-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       height: 11em;
 
-      .logo, .logo-bg {
+      .logo {
         display: none;
-        position: absolute;
+
+        @media @screen-xs {
+          display: inline;
+        }
       }
     }
     h3 {
@@ -467,9 +467,8 @@ section.projects {
 
 section.about {
   text-align: center;
-  img {
-      width: 200px;
-      height: 200px;
+  p {
+    font-size: 16px;
   }
 
   .grayscale {
@@ -489,9 +488,21 @@ section.about {
       -moz-filter: grayscale(0%);
     }
   }
-
-  p {
-    font-size: 16px;
+  
+  .img-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+    .social-container {
+      text-align: right;
+      width: 200px; // should be same as img
+      margin-top: -28px; // should be same as icon
+      z-index: 1;
+    }
   }
 }
 
