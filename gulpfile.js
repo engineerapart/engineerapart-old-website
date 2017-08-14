@@ -15,17 +15,6 @@ var cachebust = require('./scripts/gulp-cache-bust');
 
 const pastProjectsEntries = [
   {
-    id: 'engineer-apart',
-    title: 'Engineer Apart',
-    subtitle: 'Software Engineering Consultants',
-    description: 'This website!',
-    preview_url: 'img/projects/project-ea.jpg',
-    link: '#',
-    install_ios: '',
-    install_android: '',
-    technologies: [ 'Pug', 'Gulp', 'jQuery', 'HTML, CSS & JS' ],
-  },
-  {
     id: 'rehab-guru',
     title: 'Rehab Guru',
     subtitle: '<i>Redefining exerise prescription</i>',
