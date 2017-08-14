@@ -17,7 +17,7 @@ const pastProjectsEntries = [
   {
     id: 'engineer-apart',
     title: 'Engineer Apart',
-    subtitle: 'Web technology consultants',
+    subtitle: 'Software Engineering Consultants',
     description: 'This website!',
     preview_url: 'img/projects/project-ea.jpg',
     link: '#',
@@ -59,6 +59,17 @@ const pastProjectsEntries = [
     install_ios: '',
     install_android: '',
     technologies: [ 'React', 'Wordpress', 'MySQL', 'AWS EC2', 'AWS S3', 'CloudFront' ],
+  },
+  {
+    id: 'twimby',
+    title: 'Twimby',
+    subtitle: 'The world in my backyard',
+    description: 'Twimby aspires to be your convenience store in the cloud. We built the mobile-friendly Twimby website focusing on great user experience and simplify the ordering process. Twimby exemplifies the modern web technologies from top to bottom.',
+    preview_url: 'img/projects/twimby.jpg',
+    link: '',
+    install_ios: '',
+    install_android: '',
+    technologies: [ 'React', 'Koa', 'PostgreSQL', 'Google Cloud Engine', 'Docker', 'Kubernetes', 'Stripe integration' ],
   },
 ];
 
