@@ -41,8 +41,8 @@ const pastProjectsEntries = [
   {
     id: 'kwik',
     title: 'Kwik Industries',
-    subtitle: 'Easy online purchasing for both customers and franchisees',
-    description: 'With over 1000 stores in 8 states, Kwik Auto Parts needed a platform to manage customer and franchise ordering. We were contracted to offer React consulting and expertise to help complete the project, rebuilding the site in React from a legacy PHP/Wordpress stack.',
+    subtitle: 'Easy online purchasing for customers and franchisees',
+    description: 'With over 1000 stores in 8 states, Kwik Auto Parts needed a platform to manage customer and franchisee orders. We were contracted to offer React consulting and expertise to help complete the project, rebuilding the site in React from a legacy PHP/Wordpress stack.',
     preview_url: 'img/projects/project-kwik.jpg',
     link: 'https://gokwikparts.com',
     install_ios: '',
