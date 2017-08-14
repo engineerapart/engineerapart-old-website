@@ -245,23 +245,24 @@ header {
 hr.thick {
   border-width: 0px;
   max-width: initial;
-  margin-top: -100px;
+  margin-top: 0;
   height: 50px;
   box-shadow: 0 20px 20px -23px rgba(0,0,0,.75)
 }
 
 section {
-  padding: 3em 0;
+  padding: 3em 0 0;
 
   &.projects {
     padding-bottom: 1em;
   }
 
   h2 {
-    font-size: 50px;
+    font-size: 45px;
   }
+
   @media @screen-md {
-    padding: 4em 0;
+    padding: 3em 0 0;
   }
 }
 
@@ -271,7 +272,7 @@ section.services {
   .container .row {
     padding: 1.5em 1em;
     .logo-container {
-      height: 11em;
+      height: 9em;
 
       .logo {
         display: none;
@@ -509,9 +510,8 @@ section.about {
 }
 
 section.contact {
-  background: -webkit-linear-gradient(@gray-lightest , darken(@gray-lightest, 5%));
-  background: linear-gradient(@gray-lightest , darken(@gray-lightest, 5%));
   text-align: left;
+
   h2 {
       margin-top: 0;
       margin-bottom: 25px;
@@ -520,27 +520,33 @@ section.contact {
       }
   }
 
-  .container .row form {
-    float: none;
+  .container {
+     background: linear-gradient(@gray-lightest , darken(@gray-lightest, 5%));
+     width: 100%;
 
-    .form-group .btn-group {
-      display: block;
-      width: 220px;
-      margin-right: auto;
-      margin-left: auto;
+    .row form {
+      float: none;
+      margin-top: 1em;
 
-      .btn {
-        width: 110px;
-        outline: none;
+      .form-group .btn-group {
+        display: block;
+        width: 220px;
+        margin-right: auto;
+        margin-left: auto;
+
+        .btn {
+          width: 110px;
+          outline: none;
+        }
       }
-    }
 
-    .form-control.description {
-      max-width: 100%;
-    }
+      .form-control.description {
+        max-width: 100%;
+      }
 
-    .submit {
-      width: 100%;
+      .submit {
+        width: 100%;
+      }
     }
   }
 }
