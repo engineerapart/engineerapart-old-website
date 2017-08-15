@@ -53,7 +53,7 @@ const pastProjectsEntries = [
     id: 'twimby',
     title: 'Twimby',
     subtitle: 'The world in my backyard',
-    description: 'Twimby aspires to be your convenience store in the cloud. We built the mobile-friendly Twimby website focusing on great user experience and simplify the ordering process. Twimby exemplifies the modern web technologies from top to bottom.',
+    description: 'Twimby aspires to be your convenience store in the cloud. We built the mobile-friendly Twimby website focusing on great user experience and simplified the ordering process. Twimby exemplifies the modern web technologies from top to bottom.',
     preview_url: 'img/projects/twimby.jpg',
     link: '',
     install_ios: '',
