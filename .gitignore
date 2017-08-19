@@ -3,3 +3,5 @@ static
 css
 npm-debug.log
 .publish
+package-lock.json
+yarn.lock
