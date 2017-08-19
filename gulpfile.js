@@ -10,6 +10,7 @@ var pkg = require('./package.json');
 var ga = require('gulp-ga');
 var pug = require('gulp-pug');
 var ghPages = require('gulp-gh-pages');
+var imagemin = require('gulp-imagemin');
 
 var cachebust = require('./scripts/gulp-cache-bust');
 
@@ -110,6 +111,7 @@ gulp.task('copy-img', function () {
   return gulp.src([
       'img/**',
     ])
+    .pipe(imagemin())
     .pipe(gulp.dest('./static/img'));
 });
 
