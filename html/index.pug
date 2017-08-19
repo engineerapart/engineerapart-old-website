@@ -24,28 +24,54 @@ html(lang="en")
     meta(name="theme-color", content="#0f90e0")
 
     //- Custom Fonts
-    link(href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" media="none" onload="if(media!='all')media='all'")
-    link(href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" media="none" onload="if(media!='all')media='all'")
-    link(href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet" media="none" onload="if(media!='all')media='all'")
+    link(
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="preload"
+      as="style"
+      onload="this.rel='stylesheet'"
+    )
+
+    link(
+      href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
+      rel="preload"
+      as="style"
+      onload="this.rel='stylesheet'"
+    )
+
+    link(
+      href="https://fonts.googleapis.com/css?family=Muli"
+      rel="preload"
+      as="style"
+      onload="this.rel='stylesheet'"      
+    )
 
     //- CSS (BootStrap)
     link(
-      rel="stylesheet"
+      rel="preload"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
       crossorigin="anonymous"
+      as="style"
+      onload="this.rel='stylesheet'"
     )
 
     //- CSS (Animate.css)
     link(
-      rel="stylesheet"
+      rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
       integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
       crossorigin="anonymous"
+      as="style"
+      onload="this.rel='stylesheet'"
     )
 
     //- Engineer Apart Custom Theme
-    link(href="css/engineer-apart.min.css" rel="stylesheet")
+    link(
+      href="css/engineer-apart.min.css"
+      rel="preload"
+      as="style"
+      onload="this.rel='stylesheet'"
+    )
 
   body(id="page-top")
 
