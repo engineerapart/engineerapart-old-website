@@ -1,0 +1,13 @@
+//- carousel caption
+mixin css(item)
+  link(
+    href=item
+    rel="preload"
+    as="style"
+    onload="this.rel='stylesheet'"
+  )
+  noscript
+    link(
+      rel="stylesheet"
+      href=item
+    )
