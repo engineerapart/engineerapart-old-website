@@ -11,6 +11,7 @@ var ga = require('gulp-ga');
 var pug = require('gulp-pug');
 var ghPages = require('gulp-gh-pages');
 var imagemin = require('gulp-imagemin');
+var inlinesource = require('gulp-inline-source');
 
 var cachebust = require('./scripts/gulp-cache-bust');
 
@@ -132,7 +133,7 @@ gulp.task('pug', function buildHTML() {
 });
 
 // Google Analytics
-gulp.task('ga', ['pug'], function () {
+gulp.task('ga', ['build'], function () {
   return gulp.src('./static/index.html')
     .pipe(ga({
       url: 'engineerapart.com',
@@ -143,11 +144,17 @@ gulp.task('ga', ['pug'], function () {
     .pipe(gulp.dest('./static/'));
 });
 
-// Run everything
-gulp.task('default', ['minify-css', 'minify-js', 'copy-root', 'copy-img', 'pug', 'ga']);
+gulp.task('inlinesource', ['pug', 'minify-css'], function () {
+    return gulp.src('./static/*.html')
+        .pipe(inlinesource())
+        .pipe(gulp.dest('./static'));
+});
 
-// Dev build
-gulp.task('build-dev', ['minify-css', 'minify-js', 'copy-root', 'copy-img', 'pug']);
+// Build
+gulp.task('build', ['minify-css', 'minify-js', 'copy-root', 'copy-img', 'inlinesource', 'pug'])
+
+// Default (Run everything)
+gulp.task('default', ['build', 'ga']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function () {
@@ -159,7 +166,7 @@ gulp.task('browserSync', function () {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'minify-css', 'minify-js', 'copy-root', 'copy-img', 'pug'], function () {
+gulp.task('dev', ['browserSync', 'build'], function () {
   gulp.watch('less/*.less', ['less']);
   gulp.watch('css/*.css', ['minify-css']);
   gulp.watch('js/*.js', ['minify-js']);

@@ -7,9 +7,8 @@
   "scripts": {
     "start": "npm run build",
     "start:dev": "export NODE_ENV=development && gulp dev",
-    "build": "rimraf ./static && export NODE_ENV=production && gulp ",
-    "build:dev": "export NODE_ENV=development && gulp build-dev",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf ./static && export NODE_ENV=production && gulp",
+    "build:dev": "export NODE_ENV=development && gulp build",
     "deploy": "export NODE_ENV=production && gulp deploy"
   },
   "repository": {
@@ -37,6 +36,7 @@
     "cheerio": "^1.0.0-rc.2",
     "graceful-fs": "^4.1.11",
     "gulp-imagemin": "^3.3.0",
+    "gulp-inline-source": "^3.1.0",
     "gulp-util": "^3.0.8",
     "map-stream": "^0.0.7",
     "md5": "^2.2.1",
