@@ -109,8 +109,7 @@ gulp.task('copy-root', function () {
 
 // Copy img assets
 gulp.task('copy-img', function () {
-  return 
-    gulp.src(['img/**','img/projects/**'])
+  return gulp.src(['img/**','img/projects/**'])
     .pipe(imagemin())
     .pipe(gulp.dest('./static/img'));
 });
