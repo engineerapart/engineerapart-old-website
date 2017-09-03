@@ -27,7 +27,6 @@ html(lang="en")
     //- CSS - loaded Async
     +asyncCSS("https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900")
     +asyncCSS("https://fonts.googleapis.com/css?family=Muli")
-    +asyncCSS("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
     +asyncCSS("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
 
     //- Load CSS script - inlined here for perf reasons
@@ -40,6 +39,7 @@ html(lang="en")
       |!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
 
     //- Inline CSS that is needed immediately
+    link(rel="stylesheet" href="css/bootstrap.min.css" inline)
     link(rel="stylesheet" href="css/engineer-apart.min.css" inline)
   body(id="page-top")
 

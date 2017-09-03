@@ -74,8 +74,16 @@ gulp.task('less', function () {
     }));
 });
 
+// Copy css that does not need processing
+gulp.task('copy-minified-css', function () {
+  return gulp.src([
+      './css/bootstrap.min.css'
+    ])
+    .pipe(gulp.dest('./static/css'));
+});
+
 // Minify compiled CSS
-gulp.task('minify-css', ['less'], function () {
+gulp.task('minify-css', ['less', 'copy-minified-css'], function () {
   return gulp.src('css/engineer-apart.css')
     .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(postcss([ autoprefixer() ]))
