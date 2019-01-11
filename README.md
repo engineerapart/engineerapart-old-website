@@ -1,9 +1,9 @@
 # engineerapart.github.io
-Engineer Apart Public Website
+EngineerApart Public Website
 
 ## Getting started
 
-To start developing Engineer Apart Public Website, run:
+To start developing EngineerApart Public Website, run:
 
 ```
 npm i
@@ -20,4 +20,4 @@ We use StartBootstrap with New-Age template.
 
 ## Copyright and License
 
-Copyright 2017 Engineer Apart LLC.
+Copyright 2017-2019 EngineerApart LLC.
