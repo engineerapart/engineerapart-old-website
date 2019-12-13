@@ -8,7 +8,7 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var ga = require('gulp-ga');
 var pug = require('gulp-pug');
-var ghPages = require('gulp-gh-pages');
+var ghPages = require('gulp-gh-pages-will');
 var imagemin = require('gulp-imagemin');
 var inlinesource = require('gulp-inline-source');
 
@@ -38,17 +38,17 @@ var pastProjectsEntries = [
     install_android: '',
     technologies: ['Node', 'React', 'Redux', 'Express', 'Java', 'Docker'],
   },
-  // {
-  //   id: 'branchio',
-  //   title: 'Branch.io',
-  //   subtitle: 'Mobile Measurement and Deep Linking Platform',
-  //   description: '',
-  //   preview_url: 'img/projects/branchio.jpg',
-  //   link: 'https://branch.io',
-  //   install_ios: '',
-  //   install_android: '',
-  //   technologies: ['Progressive Web App', 'Node', 'React', 'Redux', 'Express', 'Java', 'Docker'],
-  // },
+  {
+    id: 'branchio',
+    title: 'Branch.io',
+    subtitle: 'Mobile Measurement and Deep Linking Platform',
+    description: 'Branch.io, one of the world\'s most well-known deep-linking and link attribution platforms, maintains a plethora of open source SDKs to make their products easy to use regardless of platform. EngineerApart was contracted by Branch to help maintain several of these SDKs and continue to develop them.',
+    preview_url: 'img/projects/branchio.jpg',
+    link: 'https://branch.io',
+    install_ios: '',
+    install_android: '',
+    technologies: ['React Native, Javascript, Cordova, Ionic, Phonegap, Node.js'],
+  },
   {
     id: 'rehab-guru',
     title: 'Rehab Guru',
