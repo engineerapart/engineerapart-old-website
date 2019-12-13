@@ -9,7 +9,11 @@
     "start:dev": "export NODE_ENV=development && gulp dev",
     "build": "rimraf ./static && export NODE_ENV=production && gulp",
     "build:dev": "export NODE_ENV=development && gulp build",
-    "deploy": "export NODE_ENV=production && gulp deploy"
+    "deploy": "export NODE_ENV=production && gulp deploy",
+    "wstart:dev": "set NODE_ENV=development && gulp dev",
+    "wbuild": "rimraf ./static && set NODE_ENV=production && gulp",
+    "wbuild:dev": "set NODE_ENV=development && gulp build",
+    "wdeploy": "set NODE_ENV=development && gulp build"
   },
   "repository": {
     "type": "git",

@@ -17,6 +17,39 @@ var cachebust = require('./scripts/gulp-cache-bust');
 
 var pastProjectsEntries = [
   {
+    id: 'rdc',
+    title: 'Realtor.com',
+    subtitle: 'Home search and real estate lead generation',
+    description: 'EngineerApart is helping lead realtor.com (Move Inc.)\'s effort to modernize their tech stack and improve the performance of their web offering. The new Realtor.com features a PWA and high performance React.',
+    preview_url: 'img/projects/rdc.jpg',
+    link: 'https://www.realtor.com',
+    install_ios: '',
+    install_android: '',
+    technologies: ['Progressive Web App', 'Next.js', 'React', 'Redux', 'Express', 'GraphQL', 'AWS EC2', 'Cloudfront', 'NewRelic', 'Optimizely', 'Docker', 'Jenkins'],
+  },
+  {
+    id: 'catech',
+    title: 'CA Technologies',
+    subtitle: 'B2B Registration Platform',
+    description: 'Migration of CA Technologies\'s Java-backed Backbone web app to modern tech stack built on top of React and Node.JS.',
+    preview_url: 'img/projects/catech.jpg',
+    link: 'https://www.broadcom.com/solutions/ca-technologies-infrastructure-software-solutions',
+    install_ios: '',
+    install_android: '',
+    technologies: ['Node', 'React', 'Redux', 'Express', 'Java', 'Docker'],
+  },
+  // {
+  //   id: 'branchio',
+  //   title: 'Branch.io',
+  //   subtitle: 'Mobile Measurement and Deep Linking Platform',
+  //   description: '',
+  //   preview_url: 'img/projects/branchio.jpg',
+  //   link: 'https://branch.io',
+  //   install_ios: '',
+  //   install_android: '',
+  //   technologies: ['Progressive Web App', 'Node', 'React', 'Redux', 'Express', 'Java', 'Docker'],
+  // },
+  {
     id: 'rehab-guru',
     title: 'Rehab Guru',
     subtitle: '<i>Redefining exerise prescription</i>',
@@ -61,17 +94,6 @@ var pastProjectsEntries = [
     install_ios: '',
     install_android: '',
     technologies: ['React', 'Koa', 'PostgreSQL', 'Google Cloud Engine', 'Docker', 'Kubernetes', 'Stripe integration'],
-  },
-  {
-    id: 'rdc',
-    title: 'Realtor.com',
-    subtitle: 'Home search and real estate lead generation',
-    description: 'EngineerApart is helping lead realtor.com\'s effort to modernize their tech stack and improve the performance of their web offering. The new Realtor.com features a PWA and high performance React.',
-    preview_url: 'img/projects/rdc.jpg',
-    link: 'https://www.realtor.com',
-    install_ios: '',
-    install_android: '',
-    technologies: ['Progressive Web App', 'Next.js', 'React', 'Redux', 'Express', 'GraphQL', 'AWS EC2', 'Cloudfront', 'NewRelic', 'Optimizely', 'Docker', 'Jenkins'],
   },
 ];
 
@@ -186,7 +208,7 @@ gulp.task('browserSync', function () {
 // Dev task with browserSync
 gulp.task('dev', gulp.parallel('build', 'browserSync', function () {
   gulp.watch('less/*.less', gulp.parallel('less'));
-  gulp.watch(['css/*.css', '!css/*.min.css'], gulp.parallel('minify-css'));
+  //gulp.watch(['css/*.css', '!css/*.min.css'], gulp.parallel('minify-css'));
   gulp.watch('js/*.js', gulp.parallel('minify-js'));
   // Reloads the browser whenever HTML or JS files change
   gulp.watch('./html/*.pug', gulp.series('pug', browserSync.reload));
