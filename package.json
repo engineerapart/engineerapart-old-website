@@ -13,7 +13,7 @@
     "wstart:dev": "set NODE_ENV=development && gulp dev",
     "wbuild": "rimraf ./static && set NODE_ENV=production && gulp",
     "wbuild:dev": "set NODE_ENV=development && gulp build",
-    "wdeploy": "set NODE_ENV=development && gulp build"
+    "wdeploy": "set NODE_ENV=production && gulp deploy"
   },
   "repository": {
     "type": "git",
