@@ -345,6 +345,51 @@ section.techstack {
     }
 }
 
+section.customer {
+  padding-bottom: 0;
+
+  .section-heading {
+    h2 {
+      margin-top: 0;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .device-container,
+  .feature-item {
+      max-width: 6em;
+      margin: 0 auto;
+  }
+  .device-container {
+      margin-bottom: 8em;
+      @media @screen-md {
+          margin-bottom: 0;
+      }
+  }
+  .feature-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 150px;
+      h3 {
+          font-size: 3em;
+      }
+      i {
+          font-size: 80px;
+            background: -webkit-linear-gradient(to left, @theme-secondary , @theme-tertiary);
+            background: linear-gradient(to left, @theme-secondary , @theme-tertiary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+      }
+      img {
+        max-width: 5em;
+
+      }
+  }
+}
+
 section.projects {
   text-align: center;
 
